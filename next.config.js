@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  experimental: {
+    serverComponentsExternalPackages: ['mongoose'],
+  },
   images: {
     domains: [
       'images.pexels.com',

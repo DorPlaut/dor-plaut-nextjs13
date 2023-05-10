@@ -1,7 +1,6 @@
 'use client';
 
 import styles from '@/styles/Hero.module.css';
-import { set } from 'mongoose';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { useState } from 'react';
