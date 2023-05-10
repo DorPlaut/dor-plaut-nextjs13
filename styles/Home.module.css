@@ -1,0 +1,56 @@
+.service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+
+  margin: 0.5rem 1.5rem;
+  width: 20rem;
+  height: 15rem;
+  color: var(--primaryColorDark);
+  background: linear-gradient(
+    250deg,
+    var(--white) 30%,
+    var(--primaryColor) 180%
+  );
+  border-radius: var(--borderRadius);
+  box-shadow: 0rem 0rem 2rem var(--black);
+}
+
+.service img {
+  transition: 0.5s;
+  border-radius: 10px;
+  opacity: 0.425;
+  z-index: 0;
+}
+
+.service:hover .service_inner,
+.service a {
+  opacity: 1;
+}
+.service_inner {
+  position: absolute;
+  top: 2rem;
+  margin: 1rem;
+  transition: 1s;
+  opacity: 0;
+}
+
+.service_title {
+  transition: 0.5s;
+  font-size: 2.5rem;
+  z-index: 1;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+.service:hover .service_title {
+  font-size: 1.5rem;
+  transform: translate(0, -5.5rem);
+}
+.service:hover img {
+  opacity: 0.15;
+}
+.service_inner a {
+  display: block;
+}

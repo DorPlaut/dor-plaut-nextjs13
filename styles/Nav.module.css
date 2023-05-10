@@ -1,0 +1,36 @@
+.nav_container {
+  display: flex;
+  align-items: center;
+}
+.nav_container ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.userNav {
+  position: absolute;
+
+  right: 0;
+  top: var(--navHeight);
+  transition: 0.5s;
+  background: var(--primaryColorTransperent);
+}
+.userNav ul {
+  list-style: none;
+  margin: 0;
+}
+.userNav button {
+  width: var(--navWidth);
+  text-align: left;
+}
+
+/* @media screen and (max-width: 800px) {
+  .userNav button {
+    width: 10rem;
+  }
+} */
+
+.menu_icon {
+  margin: 0 0.5rem;
+}

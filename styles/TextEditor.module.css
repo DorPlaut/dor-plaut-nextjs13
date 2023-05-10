@@ -1,0 +1,41 @@
+.menu {
+  background: var(--primaryColorDark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius);
+}
+.menu button {
+  color: var(--primaryColorLight);
+  font-size: 1.2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius);
+}
+.menu button:hover {
+  color: var(--primaryColor);
+  background: var(--white);
+}
+.container {
+  min-height: 10rem;
+  width: 100%;
+  background: var(--primaryColorLight);
+  padding: 0.5rem;
+  border-radius: var(--borderRadius);
+  margin: 0.2rem;
+}
+.editor {
+  padding: 0.2rem;
+  width: 100%;
+  height: 100%;
+  background: var(--primaryColorLight);
+  color: var(--primaryColorDark);
+}
+.editor img {
+  width: 100%;
+  height: 100%;
+}

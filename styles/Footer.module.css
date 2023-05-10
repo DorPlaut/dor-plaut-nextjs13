@@ -1,0 +1,28 @@
+.footer_container {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer_nav {
+}
+.footer_nav ul {
+  list-style: none;
+  display: flex;
+}
+.footer_nav button {
+  width: 8rem;
+  padding: 0;
+}
+.footer_nav button:hover {
+  padding: 0;
+}
+.footer_contact ul {
+  list-style: none;
+  display: flex;
+  font-size: 2rem;
+}
+.footer_copyright {
+  margin: 1rem;
+}

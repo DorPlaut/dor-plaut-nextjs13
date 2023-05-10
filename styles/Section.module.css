@@ -1,0 +1,104 @@
+/* BIG CONENT SECTION */
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    0deg,
+    var(--white) 0%,
+    var(--primaryColorLight) 100%
+  );
+  overflow: hidden;
+  min-height: 50vh;
+}
+.background {
+  position: absolute;
+  z-index: 0;
+  color: var(--primaryColor);
+  font-size: 85rem;
+  top: -50rem;
+}
+.content {
+  z-index: 1;
+  position: relative;
+}
+.content_text {
+  max-width: 70rem;
+  position: relative;
+  color: var(--white);
+  border-radius: var(--borderRadius);
+  padding: 1.3rem 1.3rem;
+}
+.black {
+  background: var(--blackTransperent);
+}
+.blue {
+  background: var(--primaryColorDarkTransperent);
+}
+
+/* MINI TITLES SECTION */
+
+.titles_section {
+  background: linear-gradient(var(--primaryColorDark), rgba(0, 0, 0, 0.8)),
+    url('https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* min-height: 30vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primaryColorLight);
+}
+
+/* short post */
+.post_btn_container {
+  position: relative;
+  margin-top: 2rem;
+  text-align: right;
+  z-index: 1;
+}
+.date {
+  position: absolute;
+  right: 0;
+  top: -1.2rem;
+}
+.title {
+  margin-top: 0.3rem;
+}
+
+.short_post {
+  margin-bottom: 5rem;
+  transition: 0.2s;
+}
+.short_post:hover {
+  background: var(--primaryColorTransperent);
+  color: var(--black);
+}
+
+.short_post_img {
+  position: absolute;
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+.short_post_img img {
+  object-fit: cover;
+  position: relative;
+  border-radius: 50%;
+}
+
+/* full post */
+.full_post img {
+  width: 100%;
+  border-radius: var(--borderRadius);
+}
+.post_route {
+  width: 60rem;
+}
+@media screen and (max-width: 1000px) {
+  .post_route {
+    width: 100%;
+  }
+}

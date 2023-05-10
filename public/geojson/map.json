@@ -1,0 +1,109 @@
+{
+  "type": "map",
+  "Places": [
+    {
+      "text": "California",
+      "size": 1.0,
+      "country": "USA",
+      "city": "california",
+      "lat": "36.1233508917193",
+      "lng": "-118.39570966598119"
+    },
+    {
+      "text": "Tel Aviv",
+      "size": 1.0,
+      "country": "Israel",
+      "city": "Tel Aviv",
+      "lat": "32.08574324866333",
+      "lng": "34.79020706819225"
+    },
+    {
+      "text": "New York",
+      "size": 1.0,
+      "country": "USA",
+      "city": "New York",
+      "lat": "40.7128",
+      "lng": "-74.0060"
+    },
+    {
+      "text": "Tokyo",
+      "size": 1.0,
+      "country": "Japan",
+      "city": "Tokyo",
+      "lat": "35.6895",
+      "lng": "139.6917"
+    },
+    {
+      "text": "London",
+      "size": 1.0,
+      "country": "United Kingdom",
+      "city": "London",
+      "lat": "51.5074",
+      "lng": "-0.1278"
+    },
+    {
+      "text": "Paris",
+      "size": 1.0,
+      "country": "France",
+      "city": "Paris",
+      "lat": "48.8566",
+      "lng": "2.3522"
+    },
+    {
+      "text": "Beijing",
+      "size": 1.0,
+      "country": "China",
+      "city": "Beijing",
+      "lat": "39.9042",
+      "lng": "116.4074"
+    },
+    {
+      "text": "Sydney",
+      "size": 1.0,
+      "country": "Australia",
+      "city": "Sydney",
+      "lat": "-33.8651",
+      "lng": "151.2099"
+    },
+    {
+      "text": "Rio de Janeiro",
+      "size": 1.0,
+      "country": "Brazil",
+      "city": "Rio de Janeiro",
+      "lat": "-22.908333",
+      "lng": "-43.196388"
+    },
+    {
+      "text": "Cairo",
+      "size": 1.0,
+      "country": "Egypt",
+      "city": "Cairo",
+      "lat": "30.0444",
+      "lng": "31.2357"
+    },
+    {
+      "text": "Moscow",
+      "size": 1.0,
+      "country": "Russia",
+      "city": "Moscow",
+      "lat": "55.7558",
+      "lng": "37.6173"
+    },
+    {
+      "text": "Berlin",
+      "size": 1.0,
+      "country": "Germany",
+      "city": "Berlin",
+      "lat": "52.5200",
+      "lng": "13.4050"
+    },
+    {
+      "text": "Dubai",
+      "size": 1.0,
+      "country": "United Arab Emirates",
+      "city": "Dubai",
+      "lat": "25.276987",
+      "lng": "55.296249"
+    }
+  ]
+}
