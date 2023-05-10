@@ -5,9 +5,8 @@ import {
   Center,
   PerspectiveCamera,
   PresentationControls,
-  useGLTF,
 } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { useSpring, animated, useScroll } from '@react-spring/three';
 import { angleToRadians } from '@/utils/angle';
 import { Gears } from './Models/Gears';
@@ -36,7 +35,7 @@ export function GearsScene(props) {
   ];
 
   //
-  const [settings, api] = useSpring(() => ({
+  const [settings] = useSpring(() => ({
     loop: true,
     delay: 0,
     from: {

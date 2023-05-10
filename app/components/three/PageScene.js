@@ -9,13 +9,11 @@ import FlashDriveScene from './FlashDriveScene';
 const PageScene = () => {
   return (
     <div className="three-scenes">
-      <Suspense fallback={<LoadScreen />}>
-        {/* <KeyboardScene className={'keyboard'} /> */}
-        <GearsScene className={'gears'} />
-        {/* <FlashDriveScene className={'flashdrive'} /> */}
-        {/* <HeadphonesScene className={'headphones'} /> */}
-        {/* <LeptopScene className={'leptop'} /> */}
-      </Suspense>
+      {/* <KeyboardScene className={'keyboard'} /> */}
+      <GearsScene className={'gears'} />
+      {/* <FlashDriveScene className={'flashdrive'} /> */}
+      {/* <HeadphonesScene className={'headphones'} /> */}
+      <LeptopScene className={'leptop'} />
     </div>
   );
 };
