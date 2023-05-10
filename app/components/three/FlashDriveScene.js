@@ -98,7 +98,7 @@ export default function FlashDriveScene(props) {
         <Canvas>
           <animated.mesh position={cameraPosition}>
             <PerspectiveCamera makeDefault />
-          </animated.mesh>{' '}
+          </animated.mesh>
           <Lights />
           <animated.mesh {...settings} dispose={null}>
             <PresentationControls snap={true}>
