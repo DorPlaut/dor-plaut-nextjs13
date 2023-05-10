@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Header.module.css';
 import Navbar from './nav/Navbar';
-import Login from './user/Login';
+// import Login from './user/Login';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -42,9 +42,9 @@ const Header = ({ dashborad }) => {
             {dashborad ? <Navbar dashborad /> : <Navbar />}
           </div>
 
-          <div className={styles.user}>
+          {/* <div className={styles.user}>
             <Login />
-          </div>
+          </div> */}
         </div>
       </header>
     </>
