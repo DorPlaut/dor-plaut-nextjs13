@@ -39,4 +39,4 @@ export function Gears(props) {
   );
 }
 
-useGLTF.preload('/Gears.glb');
+// useGLTF.preload('/Gears.glb');

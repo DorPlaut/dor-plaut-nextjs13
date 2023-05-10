@@ -9,10 +9,10 @@ import FlashDriveScene from './FlashDriveScene';
 const PageScene = () => {
   return (
     <div className="three-scenes">
-      {/* <KeyboardScene className={'keyboard'} /> */}
+      <KeyboardScene className={'keyboard'} />
       <GearsScene className={'gears'} />
-      {/* <FlashDriveScene className={'flashdrive'} /> */}
-      {/* <HeadphonesScene className={'headphones'} /> */}
+      <FlashDriveScene className={'flashdrive'} />
+      <HeadphonesScene className={'headphones'} />
       <LeptopScene className={'leptop'} />
     </div>
   );

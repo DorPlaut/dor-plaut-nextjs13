@@ -41,6 +41,6 @@ export default function Headphones(props) {
   );
 }
 
-useGLTF.preload(
-  'https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/headphones/model.gltf'
-);
+// useGLTF.preload(
+//   'https://market-assets.fra1.cdn.digitaloceanspaces.com/market-assets/models/headphones/model.gltf'
+// );

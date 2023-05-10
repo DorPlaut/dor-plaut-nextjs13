@@ -36,4 +36,4 @@ export default function FlashDrive(props) {
   );
 }
 
-useGLTF.preload('/Flash drive.glb');
+// useGLTF.preload('/Flash drive.glb');
