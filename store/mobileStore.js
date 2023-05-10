@@ -1,5 +1,4 @@
-import create from 'zustand';
-
+import { create } from 'zustand';
 export const useMobileStore = create((set) => ({
   isMobile: false,
   setIsMobile: () => {

@@ -10,11 +10,11 @@ const PageScene = () => {
   return (
     <div className="three-scenes">
       <Suspense fallback={<LoadScreen />}>
-        <KeyboardScene className={'keyboard'} />
+        {/* <KeyboardScene className={'keyboard'} /> */}
         <GearsScene className={'gears'} />
-        <FlashDriveScene className={'flashdrive'} />
-        <HeadphonesScene className={'headphones'} />
-        <LeptopScene className={'leptop'} />
+        {/* <FlashDriveScene className={'flashdrive'} /> */}
+        {/* <HeadphonesScene className={'headphones'} /> */}
+        {/* <LeptopScene className={'leptop'} /> */}
       </Suspense>
     </div>
   );

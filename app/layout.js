@@ -10,7 +10,7 @@ import { useAlertStore } from '@/store/alertStore';
 import { NextAuthProvider } from './providers';
 import Alerts from './components/Alerts';
 import Footer from './components/Footer';
-// import PageScene from './components/three/PageScene';
+import PageScene from './components/three/PageScene';
 
 // const inter = Inter({ subsets: ['latin'] });
 
@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <body>
           <Header />
           <main>
-            {/* <PageScene /> */}
+            <PageScene />
             <Hero />
             {children}
             <Alerts />
