@@ -116,6 +116,11 @@
   width: 2rem;
   height: 2rem;
 }
+.nav {
+  height: var(--navHeight);
+  display: flex;
+  justify-content: center;
+}
 
 /* inner nav */
 .shop_nav,

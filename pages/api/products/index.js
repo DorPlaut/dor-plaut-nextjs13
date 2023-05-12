@@ -38,8 +38,12 @@ export default async function handler(req, res) {
       // get specific product
       const productId = req.query.id;
       if (productId) {
-        const product = await Product.findById(productId);
-        console.log('get post');
+        const products = await getProducts();
+        const product = products.find((product) => {
+          if (product.provider === 'self') return product._id === productId;
+          if (product.provider === 'printify') return product.id === productId;
+        });
+        // const product = await Product.findById(productId);
         res.status(200).json(product);
         // get all products
       } else {

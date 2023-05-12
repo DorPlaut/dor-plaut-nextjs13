@@ -1,13 +1,10 @@
 `use client`;
 
-import React, { useCallback, useEffect, useState } from 'react';
-import DashboardLayout from '@/components/DashboardLayout';
-import Head from 'next/head';
+import React, { useState } from 'react';
 import { useProductsStore } from '@/store/productsStrore';
 import axios from 'axios';
 import Image from 'next/image';
 import styles from '@/styles/Dashboard.module.css';
-import AddProduct from '@/components/dashboard/shop/AddProduct';
 import { useAlertStore } from '@/store/alertStore';
 
 const Order = ({ order, printifyOrder, getOrders }) => {
