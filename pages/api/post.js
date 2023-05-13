@@ -47,7 +47,7 @@ export default async function handler(req, res) {
     }
     // delete post
     if (req.method === 'DELETE' && isAdmin) {
-      const postId = req.body.id;
+      const postId = req.query.id;
       const deletedPost = await Post.findByIdAndDelete(postId);
       console.log('delete post');
       res.status(200).json(deletedPost);

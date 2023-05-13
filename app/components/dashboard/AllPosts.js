@@ -1,19 +1,22 @@
+'use client';
 import React from 'react';
 import { usePostsStore } from '@/store/PostsStore';
 import styles from '@/styles/Dashboard.module.css';
 import axios from 'axios';
 import Image from 'next/image';
+import { useAlertStore } from '@/store/alertStore';
 
-const AllPosts = ({ showAlert, setPage, setPost }) => {
+const AllPosts = ({ setPage, setPost }) => {
   const posts = usePostsStore((state) => state.posts);
+  const getAllPosts = usePostsStore((state) => state.getAllPosts);
+  const showAlert = useAlertStore((state) => state.showAlert);
 
   //   delete post
   const deletePost = async (id) => {
-    console.log('delete');
     try {
-      await axios.delete(`../../api/post`, { data: { id: id } }).then(() => {
-        showAlert('Post deleted successfully');
-        // setPage('dash');
+      await axios.delete(`/api/post?id=${id}`).then(() => {
+        showAlert('Post deleted successfully', 'success');
+        getAllPosts();
       });
     } catch (err) {
       console.log(err);
