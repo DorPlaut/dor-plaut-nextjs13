@@ -1,8 +1,7 @@
 import connectDB from '@/utils/connectDB';
-const Post = require('@/utils/models/Post');
-const User = require('@/utils/models/User');
-const Cart = require('@/utils/models/Cart');
-const Order = require('@/utils/models/Order');
+import User from '@/utils/models/User';
+import Cart from '@/utils/models/Cart';
+import Order from '@/utils/models/Order';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth/next';
 import { calculateShippingfunc } from '@/utils/calculateShipping';
@@ -48,21 +47,8 @@ export default async function handler(req, res) {
       }
     }
 
-    // // get orders
-    // else if (req.method === 'GET' && isAdmin) {
-    //   console.log('no query');
-    //   const printifyOrders = await getPrintifyOrder();
-    //   const orders = await Order.find();
-    //   const allOrders = {
-    //     printify: printifyOrders,
-    //     self: orders,
-    //   };
-    //   res.status(200).json(allOrders);
-    // }
-
     // Handle orders. calculate shiping
     if (req.method === 'POST' && session) {
-      //   console.log(req.body);
       const { userId, cartId } = req.body;
       const shippingDetails = req.body.address_to;
       const userCart = await Cart.findById(cartId);

@@ -38,13 +38,12 @@ const Cart = () => {
   }, [user, getUserCart]);
   // REMOVE ITEM FROM CART
   const removeFromCart = async (product) => {
+    console.log({ userId: user._id, product: product });
     try {
       await axios
-        .delete(`/api/cart`, {
-          data: {
-            userId: user._id,
-            product: product,
-          },
+        .patch(`/api/cart`, {
+          userId: user._id,
+          product: product,
         })
         .then(() => {
           getUserCart(user._id);
@@ -52,6 +51,7 @@ const Cart = () => {
         });
     } catch (err) {
       console.log(err);
+      showAlert('Error', 'danger');
     }
   };
   // Chanfe quantity
@@ -94,7 +94,7 @@ const Cart = () => {
             <div className={` ${styles.full_price} ${styles.cart_total}`}>
               <Link
                 className="btn block-btn bright"
-                href={`/shop/checkout/${cart._id}`}
+                href={`/shop/checkout`}
                 onClick={() => {
                   closeCart();
                   closeMenu();

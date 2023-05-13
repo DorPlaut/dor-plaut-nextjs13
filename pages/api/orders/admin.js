@@ -1,12 +1,9 @@
 import connectDB from '@/utils/connectDB';
-const Post = require('@/utils/models/Post');
-const User = require('@/utils/models/User');
-const Cart = require('@/utils/models/Cart');
-const Order = require('@/utils/models/Order');
+
+import User from '@/utils/models/User';
+import Order from '@/utils/models/Order';
 import { authOptions } from 'pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth/next';
-import { calculateShippingfunc } from '@/utils/calculateShipping';
-import { submitOrder } from '@/utils/submitOrder';
 import { getPrintifyOrder } from '@/utils/getPrintifyOrder';
 import { transporter, mailOptions } from '@/utils/nodeMailer';
 
@@ -22,13 +19,18 @@ export default async function handler(req, res) {
       user = await User.findOne({ email: session.user.email });
       if (user) isAdmin = user.isAdmin;
     }
+    console.log('OKKK');
 
     const email = process.env.EMAIL;
     const webName = process.env.WEB_NAME;
     const url = process.env.URL;
 
     // get all orders
+    if (req.method === 'GET') {
+      console.log(isAdmin);
+    }
     if (req.method === 'GET' && isAdmin) {
+      console.log('get order');
       const printifyOrders = await getPrintifyOrder();
       const orders = await Order.find();
       const allOrders = {

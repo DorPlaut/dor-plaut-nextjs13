@@ -1,3 +1,4 @@
+'use client';
 import React, { use, useCallback, useEffect, useState } from 'react';
 import { useProductsStore } from '@/store/productsStrore';
 import axios from 'axios';
@@ -8,13 +9,13 @@ import Order from './Order';
 
 const AllOrders = () => {
   const [orders, setOrders] = useState('');
-  const getAllProducts = useCallback(() => {
-    useProductsStore.getState().getAllProducts();
-  }, []);
+  // const getAllProducts = useCallback(() => {
+  //   useProductsStore.getState().getAllProducts();
+  // }, []);
 
-  useEffect(() => {
-    getAllProducts();
-  }, [getAllProducts]);
+  // useEffect(() => {
+  //   getAllProducts();
+  // }, [getAllProducts]);
 
   // alerts
   const showAlert = useAlertStore((state) => state.showAlert);

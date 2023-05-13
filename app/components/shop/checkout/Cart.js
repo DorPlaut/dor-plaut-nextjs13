@@ -37,11 +37,9 @@ const Cart = () => {
   const removeFromCart = async (product) => {
     try {
       await axios
-        .delete(`/api/cart`, {
-          data: {
-            userId: user._id,
-            product: product,
-          },
+        .patch(`/api/cart`, {
+          userId: user._id,
+          product: product,
         })
         .then(() => {
           getUserCart(user._id);
@@ -74,19 +72,27 @@ const Cart = () => {
   return (
     <div className={styles.cart_checkout}>
       <div className={`${styles.cart_inner} fade-in flex-column`}>
-        {cart.products.map((product, index) => (
-          <CartItem
-            product={product}
-            updateCart={updateCart}
-            key={index}
-            removeFromCart={removeFromCart}
-          />
-        ))}
-        <div className={` ${styles.checkout_total} `}>
-          <span>{`Total before shipping: ${(cartTotal / 100).toFixed(
-            2
-          )}$ `}</span>
-        </div>
+        {cart.products.length > 0 ? (
+          <>
+            {cart.products.map((product, index) => (
+              <CartItem
+                product={product}
+                updateCart={updateCart}
+                key={index}
+                removeFromCart={removeFromCart}
+              />
+            ))}
+            <div className={` ${styles.checkout_total} `}>
+              <span>{`Total before shipping: ${(cartTotal / 100).toFixed(
+                2
+              )}$ `}</span>
+            </div>
+          </>
+        ) : (
+          <>
+            <h2>No items in the cart</h2>
+          </>
+        )}
       </div>
     </div>
   );

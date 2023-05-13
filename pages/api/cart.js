@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       }
     }
     // Delete product from cart
-    if (req.method === 'DELETE') {
+    if (req.method === 'PATCH') {
       const { userId, product } = req.body;
       const sku = product.sku;
       const userCart = await Cart.findOne({ userId: userId });
