@@ -19,7 +19,9 @@ const Btn = ({ text, page, setPage }) => {
 };
 
 const Shop = () => {
+  // set page
   const [page, setPage] = useState('dash');
+  // set product to edit
   const [product, setProduct] = useState('');
 
   return (

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import WritePost from '@/app/components/dashboard/WritePost';
 import styles from '@/styles/Dashboard.module.css';
 import AllPosts from '@/app/components/dashboard/AllPosts';
@@ -10,11 +10,16 @@ import { useAlertStore } from '@/store/alertStore';
 const Blog = () => {
   const [page, setPage] = useState('dash');
   // alerts
-
   const showAlert = useAlertStore((state) => state.showAlert);
-
-  const getAllPosts = usePostsStore((state) => state.getAllPosts);
   const posts = usePostsStore((state) => state.posts);
+  // get posts
+  const getAllPosts = usePostsStore((state) => state.getAllPosts);
+
+  useEffect(() => {
+    if (posts.length === 0) getAllPosts();
+  }, []);
+
+  // select post to edit
   const [post, setPost] = useState(posts[0]);
 
   return (
