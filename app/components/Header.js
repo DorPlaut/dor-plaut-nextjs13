@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '@/styles/Header.module.css';
 import Navbar from './nav/Navbar';
-import Login from './user/Login';
+import Login from './user/LoginBtn';
 import Image from 'next/image';
 import Link from 'next/link';
 

@@ -2,7 +2,7 @@
 import React from 'react';
 import NavLinks from './NavLinks';
 import styles from '@/styles/Nav.module.css';
-import Login from '../user/Login';
+import Login from '../user/LoginBtn';
 import DashNavLinks from './DashNavLinks';
 
 const Navbar = ({ dashborad }) => {

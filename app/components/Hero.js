@@ -20,6 +20,9 @@ const Hero = () => {
     }
     const paths = path.split('/');
     let firstWord = paths[1];
+    if (firstWord === 'auth') {
+      return 'Login/Register';
+    }
     // if (paths.length > 2 && paths[1] === 'dashboard') {
     //   firstWord = paths[2];
     // }
