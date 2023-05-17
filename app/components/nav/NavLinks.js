@@ -32,7 +32,7 @@ const NavLinks = () => {
         </Link>
       </li>
       <li>
-        <Link href={'/blog'}>
+        <Link href={'/blog'} scroll={false}>
           <button
             className={`btn nav-btn bright ${
               path.startsWith('/blog') && 'active-nav'
@@ -43,7 +43,7 @@ const NavLinks = () => {
         </Link>
       </li>
       <li>
-        <Link href={'/shop'}>
+        <Link href={'/shop'} scroll={false}>
           <button
             className={`btn nav-btn bright ${
               path.startsWith('/shop') && 'active-nav'
@@ -55,7 +55,7 @@ const NavLinks = () => {
         </Link>
       </li>
       <li>
-        <Link href={'/contact'}>
+        <Link href={'/contact'} scroll={false}>
           <button
             className={`btn nav-btn bright ${
               path.startsWith('/contact') && 'active-nav'
