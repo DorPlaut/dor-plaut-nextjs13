@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
         <body>
           <Header />
           <main>
-            {/* <PageScene /> */}
+            <PageScene />
             <Hero />
             {children}
             <Alerts />
