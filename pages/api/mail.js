@@ -5,9 +5,6 @@ import { authOptions } from 'pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth/next';
 import { transporter, mailOptions } from '@/utils/nodeMailer';
 
-const email = process.env.EMAIL;
-const pass = process.env.EMAIL_PASS;
-
 export default async function handler(req, res) {
   try {
     // connect to mongo
@@ -21,12 +18,21 @@ export default async function handler(req, res) {
       if (user) isAdmin = user.isAdmin;
     }
 
+    const siteEmail = process.env.EMAIL;
+    const webName = process.env.WEB_NAME;
+    const url = process.env.URL;
+
     // get order
     if (req.method === 'POST') {
-      const { func, message } = req.body;
-      // if (func === 'orderConfirmed') {
-      //   await transporter.sendMail(message);
-      // }
+      const { name, email, message } = req.body;
+      console.log(email);
+      await transporter.sendMail({
+        from: email,
+        to: siteEmail,
+        subject: `Hello ${webName}, you have a new message from ${name}`,
+        text: `Hello ${webName}, you have a new message from: \n\n ${name} \n\ ${email} \n\n ${message}`,
+        html: `<p style="text-align:center">Hello ${webName}, you have a new message from: <br/> ${name} <br/> ${email} <br/> ${message}</p>`,
+      });
       res.status(200).json({ staus: 'success' });
     }
     if (req.method === 'GET') {

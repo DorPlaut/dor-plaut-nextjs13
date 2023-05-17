@@ -5,19 +5,20 @@ import {
   AiFillInstagram,
   AiFillLinkedin,
 } from 'react-icons/ai';
-import { FaGithubSquare } from 'react-icons/fa';
+import {
+  FaGithubSquare,
+  FaFacebookSquare,
+  FaLinkedin,
+  FaInstagramSquare,
+} from 'react-icons/fa';
+import { RiInstagramFill } from 'react-icons/ri';
 
 const SocialLinks = () => {
   return (
     <ul>
       <li>
         <Link href={'/blog'}>
-          <AiFillFacebook />
-        </Link>
-      </li>
-      <li>
-        <Link href={'/blog'}>
-          <AiFillLinkedin />
+          <FaLinkedin />
         </Link>
       </li>
       <li>
@@ -27,7 +28,12 @@ const SocialLinks = () => {
       </li>
       <li>
         <Link href={'/blog'}>
-          <AiFillInstagram />
+          <FaInstagramSquare />
+        </Link>
+      </li>
+      <li>
+        <Link href={'/blog'}>
+          <FaFacebookSquare />
         </Link>
       </li>
     </ul>

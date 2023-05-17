@@ -20,23 +20,3 @@
 .content {
   position: relative;
 }
-
-/* CONTACT PAGE */
-.contact {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-/* Contact Form */
-.contact_form_container {
-  background: var(--primaryColorDarkTransperent);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20rem;
-  width: 100%;
-}
-.contact_form {
-  display: flex;
-  flex-direction: column;
-  background: red;
-}

@@ -52,13 +52,13 @@ const AllPosts = ({ setPage, setPost }) => {
                   setPost(post);
                 }}
               >
-                ערוך כתבה
+                Edit post
               </button>
               <button
                 className="btn block-btn dark"
                 onClick={() => deletePost(post._id)}
               >
-                מחק כתבה
+                Delete post
               </button>
             </div>
           </div>

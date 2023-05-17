@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import NavLinks from './NavLinks';
 import styles from '@/styles/Nav.module.css';
