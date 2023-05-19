@@ -403,13 +403,18 @@ input[type='checkbox'] {
 /* 3d */
 .scene canvas {
   position: relative;
-  height: calc(100vh - var(--navHeight));
+  height: calc(100vh - var(--navHeight) - 10.5rem);
   width: 100vw;
   background: linear-gradient(
     0deg,
     var(--primaryColor) 0%,
     var(--primaryColorLight) 100%
   );
+}
+@media screen and (max-width: 800px) {
+  .scene canvas {
+    height: calc(100vh - var(--navHeight));
+  }
 }
 
 .keyboard {
@@ -479,7 +484,7 @@ input[type='checkbox'] {
 
 .box-controlls {
   position: absolute;
-  bottom: 1rem;
+  bottom: 11rem;
   left: 1rem;
   text-align: center;
   display: grid;

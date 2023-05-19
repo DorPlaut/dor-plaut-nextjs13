@@ -82,7 +82,7 @@ const Scene = () => {
           <Physics>
             <ColorBox position={[0, 5, 7]} />
             {/* item */}
-            <RigidBody
+            {/* <RigidBody
               rotation={[0, angleToRadians(0), angleToRadians(180)]}
               position={[-12, 5, -5]}
               density={0.2}
@@ -97,7 +97,7 @@ const Scene = () => {
               colliders={'trimesh'}
             >
               <FlashDrive scale={1} />
-            </RigidBody>
+            </RigidBody> */}
 
             <ErrorText position={[2, 0, 0]} />
             {/* floor */}

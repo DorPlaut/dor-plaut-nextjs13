@@ -14,15 +14,36 @@ const Hero = () => {
   // path
   const path = usePathname();
   // format path
+  const pages = [
+    'auth',
+    'shop',
+    'blog',
+    'dashboard',
+    'profile',
+    'cart',
+    'checkout',
+    'orders',
+    'wishlist',
+    'contact',
+    'about',
+    'faq',
+    'terms',
+    'privacy',
+    'return',
+    'shipping',
+    'faq',
+    'refund',
+    'help',
+  ];
   function formatPath(path) {
     if (path === '/') {
       return 'Main';
     }
     const paths = path.split('/');
     let firstWord = paths[1];
-    if (firstWord === 'auth') {
-      return 'Login/Register';
-    }
+    if (pages.includes(firstWord) == false) return '404';
+    if (firstWord === 'auth') return 'Login/Register';
+
     // if (paths.length > 2 && paths[1] === 'dashboard') {
     //   firstWord = paths[2];
     // }
@@ -36,7 +57,7 @@ const Hero = () => {
     <div
       className={`${styles.hero}  ${
         page !== 'Main' ? styles.short_hero : styles.long_hero
-      } `}
+      } ${page === '404' && styles.hidden_hero} `}
     >
       {/* <div className={styles.background}>
         <BsGear

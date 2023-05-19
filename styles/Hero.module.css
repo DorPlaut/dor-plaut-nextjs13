@@ -20,6 +20,9 @@
 .long_hero {
   height: calc(70vh - var(--navHeight));
 }
+.hidden_hero {
+  height: 0;
+}
 
 .background {
   position: absolute;
