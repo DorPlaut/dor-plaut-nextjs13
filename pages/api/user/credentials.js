@@ -9,32 +9,38 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       const { email, password } = req.query;
       const provider = 'local';
-      const user = await User.findOne({ email, provider });
-      //   if user is not exict
-      if (!user) {
-        console.log('false login: no user');
-        res
-          .status(401)
-          .json({ error: 'There is no user with this email. please sign up' });
+      try {
+        const user = await User.findOne({ email, provider });
+        if (!user) {
+          console.log('false login: no user');
+          res.status(401).json({
+            error: 'There is no user with this email. please sign up',
+          });
+        }
+        //    if there is no password
+        if (!password) {
+          console.log('false login: no password');
+          res.status(401).json({ error: 'Please enter a password' });
+          return;
+        }
+        //   if password is incorrect
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+          console.log('false login: Incorrect password');
+          res
+            .status(401)
+            .json({ error: 'The password you provided is incorrect' });
+          return;
+        }
+        //   if all is correct
+        console.log('Correct password. sign in');
+        res.status(200).json({ user });
+      } catch (error) {
+        //   if user is not exict
+        res.status(401).json({
+          error: 'There is no user with this email. please sign up',
+        });
       }
-      //    if there is no password
-      if (!password) {
-        console.log('false login: no password');
-        res.status(401).json({ error: 'Please enter a password' });
-        return;
-      }
-      //   if password is incorrect
-      const isPasswordValid = await bcrypt.compare(password, user.password);
-      if (!isPasswordValid) {
-        console.log('false login: Incorrect password');
-        res
-          .status(401)
-          .json({ error: 'The password you provided is incorrect' });
-        return;
-      }
-      //   if all is correct
-      console.log('Correct password. sign in');
-      res.status(200).json({ user });
     }
     //
     // handle user signup
