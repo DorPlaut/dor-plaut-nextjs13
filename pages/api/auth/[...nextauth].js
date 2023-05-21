@@ -54,51 +54,51 @@ const checkIfUserExist = async (id) => {
 export const authOptions = {
   // PROVIDERS
   providers: [
-    CredentialsProvider({
-      name: 'Credentials',
-      credentials: {
-        email: { label: 'Email', type: 'email', placeholder: 'Your@Email.com' },
-        username: {
-          label: 'Username',
-          type: 'username',
-          placeholder: 'username',
-        },
-        provider: {
-          label: 'provider',
-          type: 'provider',
-          placeholder: 'provider',
-        },
-        password: {
-          label: 'Password',
-          type: 'password',
-          placeholder: '********',
-        },
-      },
-      async authorize(credentials, req) {
-        const { email, password } = credentials;
-        const user = await loginWithCredentials(email, password);
-        // console.log(user);
-        const userWithoutpassword = {
-          id: user._id,
-          email: user.email,
-          provider: 'local',
-          username: user.username,
-        };
-        return userWithoutpassword;
-      },
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
+    // CredentialsProvider({
+    //   name: 'Credentials',
+    //   credentials: {
+    //     email: { label: 'Email', type: 'email', placeholder: 'Your@Email.com' },
+    //     username: {
+    //       label: 'Username',
+    //       type: 'username',
+    //       placeholder: 'username',
+    //     },
+    //     provider: {
+    //       label: 'provider',
+    //       type: 'provider',
+    //       placeholder: 'provider',
+    //     },
+    //     password: {
+    //       label: 'Password',
+    //       type: 'password',
+    //       placeholder: '********',
+    //     },
+    //   },
+    //   async authorize(credentials, req) {
+    //     const { email, password } = credentials;
+    //     const user = await loginWithCredentials(email, password);
+    //     // console.log(user);
+    //     const userWithoutpassword = {
+    //       id: user._id,
+    //       email: user.email,
+    //       provider: 'local',
+    //       username: user.username,
+    //     };
+    //     return userWithoutpassword;
+    //   },
+    // }),
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_CLIENT_ID,
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    // }),
+    // FacebookProvider({
+    //   clientId: process.env.FACEBOOK_CLIENT_ID,
+    //   clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    // }),
+    // GitHubProvider({
+    //   clientId: process.env.GITHUB_ID,
+    //   clientSecret: process.env.GITHUB_SECRET,
+    // }),
     Auth0Provider({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
