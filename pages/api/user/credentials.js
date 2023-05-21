@@ -57,14 +57,14 @@ export default async function handler(req, res) {
         if (newUser) {
           res.status(200).json({ newUser });
         } else {
-          console.log('user already exict');
-          res.status(401).json({ error: 'user already exict' });
+          console.log('user already exist');
+          res.status(401).json({ error: 'user already exist' });
         }
       }
       // if user is already exist
       if (user) {
-        console.log('user already exict');
-        res.status(401).json({ error: 'user already exict' });
+        console.log('user already exist');
+        res.status(401).json({ error: 'user already exist' });
       }
     }
   } catch (err) {
