@@ -3,6 +3,7 @@ import styles from '@/styles/contact.module.css';
 import { signIn, useSession } from 'next-auth/react';
 import { BsGoogle } from 'react-icons/bs';
 import { ImFacebook } from 'react-icons/im';
+import { FiGithub } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoginForm from './LoginForm';
@@ -16,6 +17,7 @@ const Login = ({ providers }) => {
   const icon = (provider) => {
     if (provider === 'google') return <BsGoogle />;
     if (provider === 'facebook') return <ImFacebook />;
+    if (provider === 'github') return <FiGithub />;
   };
   // get session details
   const { data: session } = useSession();
