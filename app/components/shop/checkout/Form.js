@@ -121,328 +121,332 @@ const Form = () => {
     }
   }, [cart, country]);
   return (
-    <div className={styles.checkout_form_container}>
-      <form onSubmit={handleSubmit} action="" method="post">
-        <div className={styles.checkout_form}>
-          <div className={styles.checkout_input}>
-            <label>First name: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {firstName}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="first_name"
-                // value={firstName}
-                placeholder={firstName}
-                onChange={(event) => {
-                  setFirstName(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Last name: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {lastName}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="last_name"
-                placeholder={lastName}
-                onChange={(event) => {
-                  setLastName(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Email: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {email}
-              </span>
-            ) : (
-              <input
-                type="email"
-                name="email"
-                placeholder={email}
-                onChange={(event) => {
-                  setEmail(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Phone number: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {phone}
-              </span>
-            ) : (
-              <input
-                type="tel"
-                name="phone"
-                placeholder={phone}
-                onChange={(event) => {
-                  setPhone(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Country: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {country}
-              </span>
-            ) : (
-              <CountryDropdown
-                classes="input"
-                name="country"
-                valueType="short"
-                value={country}
-                onChange={(event) => {
-                  setCountry(event);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Region: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {region}
-              </span>
-            ) : (
-              <RegionDropdown
-                classes="input"
-                name="region"
-                countryValueType="short"
-                country={country}
-                value={region}
-                onChange={(event) => {
-                  setRegion(event);
-                }}
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Address: </label>
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {address1}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="address1"
-                placeholder={address1}
-                onChange={(event) => {
-                  setAddress1(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Secondery address {'(optional)'}: </label>{' '}
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {address2}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="address2"
-                placeholder={address2}
-                onChange={(event) => {
-                  setAddress2(event.target.value);
-                }}
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>City : </label>{' '}
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {city}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="city"
-                placeholder={city}
-                onChange={(event) => {
-                  setCity(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-          <div className={styles.checkout_input}>
-            <label>Zip code : </label>{' '}
-            {ispaying ? (
-              <span
-                onClick={() =>
-                  showAlert(
-                    'Go back to edit mode to edit your address',
-                    'danger'
-                  )
-                }
-                className={styles.readonly_input}
-              >
-                {zip}
-              </span>
-            ) : (
-              <input
-                type="text"
-                name="zip"
-                placeholder={zip}
-                onChange={(event) => {
-                  setZip(event.target.value);
-                }}
-                required
-              />
-            )}
-          </div>
-        </div>
-        {/* info and buttons */}
-        <div className={styles.checkout_total}>
-          {shippingCost ? (
-            <span>{`Shipping: ${(shippingCost / 100).toFixed(
-              2
-            )}$ | Total with shipping:  ${(totalCost / 100).toFixed(
-              2
-            )}$ `}</span>
-          ) : (
-            <button
-              type="button"
-              className="btn block-btn bright"
-              onClick={() => {
-                calculateShipping();
-              }}
-            >
-              Calculate shipping cost
-            </button>
-          )}
-          {shippingCost &&
-            (ispaying ? (
-              <button
-                type="button"
-                className="btn block-btn bright"
-                onClick={() => {
-                  setIsPaying(false);
-                }}
-              >
-                Edit shipping details
-              </button>
-            ) : (
-              <button type="submit" className="btn block-btn bright">
-                Continue to payment
-              </button>
-            ))}
-        </div>
-      </form>
-      {ispaying && (
-        <div className={styles.paypal_container}>
-          <h1>payment</h1>
-          <div className="flex-row">
-            Total: ${(totalCost / 100).toFixed(2)}$
-          </div>
-          <br />
+    <>
+      {cart.products.length() > 0 && (
+        <div className={styles.checkout_form_container}>
+          <form onSubmit={handleSubmit} action="" method="post">
+            <div className={styles.checkout_form}>
+              <div className={styles.checkout_input}>
+                <label>First name: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {firstName}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="first_name"
+                    // value={firstName}
+                    placeholder={firstName}
+                    onChange={(event) => {
+                      setFirstName(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Last name: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {lastName}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="last_name"
+                    placeholder={lastName}
+                    onChange={(event) => {
+                      setLastName(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Email: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {email}
+                  </span>
+                ) : (
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={email}
+                    onChange={(event) => {
+                      setEmail(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Phone number: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {phone}
+                  </span>
+                ) : (
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder={phone}
+                    onChange={(event) => {
+                      setPhone(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Country: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {country}
+                  </span>
+                ) : (
+                  <CountryDropdown
+                    classes="input"
+                    name="country"
+                    valueType="short"
+                    value={country}
+                    onChange={(event) => {
+                      setCountry(event);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Region: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {region}
+                  </span>
+                ) : (
+                  <RegionDropdown
+                    classes="input"
+                    name="region"
+                    countryValueType="short"
+                    country={country}
+                    value={region}
+                    onChange={(event) => {
+                      setRegion(event);
+                    }}
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Address: </label>
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {address1}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="address1"
+                    placeholder={address1}
+                    onChange={(event) => {
+                      setAddress1(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Secondery address {'(optional)'}: </label>{' '}
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {address2}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="address2"
+                    placeholder={address2}
+                    onChange={(event) => {
+                      setAddress2(event.target.value);
+                    }}
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>City : </label>{' '}
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {city}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder={city}
+                    onChange={(event) => {
+                      setCity(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+              <div className={styles.checkout_input}>
+                <label>Zip code : </label>{' '}
+                {ispaying ? (
+                  <span
+                    onClick={() =>
+                      showAlert(
+                        'Go back to edit mode to edit your address',
+                        'danger'
+                      )
+                    }
+                    className={styles.readonly_input}
+                  >
+                    {zip}
+                  </span>
+                ) : (
+                  <input
+                    type="text"
+                    name="zip"
+                    placeholder={zip}
+                    onChange={(event) => {
+                      setZip(event.target.value);
+                    }}
+                    required
+                  />
+                )}
+              </div>
+            </div>
+            {/* info and buttons */}
+            <div className={styles.checkout_total}>
+              {shippingCost ? (
+                <span>{`Shipping: ${(shippingCost / 100).toFixed(
+                  2
+                )}$ | Total with shipping:  ${(totalCost / 100).toFixed(
+                  2
+                )}$ `}</span>
+              ) : (
+                <button
+                  type="button"
+                  className="btn block-btn bright"
+                  onClick={() => {
+                    calculateShipping();
+                  }}
+                >
+                  Calculate shipping cost
+                </button>
+              )}
+              {shippingCost &&
+                (ispaying ? (
+                  <button
+                    type="button"
+                    className="btn block-btn bright"
+                    onClick={() => {
+                      setIsPaying(false);
+                    }}
+                  >
+                    Edit shipping details
+                  </button>
+                ) : (
+                  <button type="submit" className="btn block-btn bright">
+                    Continue to payment
+                  </button>
+                ))}
+            </div>
+          </form>
+          {ispaying && (
+            <div className={styles.paypal_container}>
+              <h1>payment</h1>
+              <div className="flex-row">
+                Total: ${(totalCost / 100).toFixed(2)}$
+              </div>
+              <br />
 
-          <PaypalBtn
-            totalCost={totalCost}
-            shipping={shipping}
-            items={items}
-            cart={cart}
-            orderId={orderId}
-            shippingCost={shippingCost}
-          />
+              <PaypalBtn
+                totalCost={totalCost}
+                shipping={shipping}
+                items={items}
+                cart={cart}
+                orderId={orderId}
+                shippingCost={shippingCost}
+              />
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 
