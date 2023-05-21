@@ -220,6 +220,10 @@ footer {
   background: #6e5494;
   color: white;
 }
+.auth0 {
+  background: #d0d2d3;
+  color: var(--black);
+}
 
 /* flex */
 .flex-row {

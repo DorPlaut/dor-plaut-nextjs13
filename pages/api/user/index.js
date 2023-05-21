@@ -5,11 +5,10 @@ export default async function handler(req, res) {
   connectDB();
   try {
     if (req.method === 'POST') {
-      console.log(req.body);
       const { username, email, image, provider, provider_id } = req.body;
       const user = await User.findOne({ email });
       // if there is no user from this provider
-      if (!user || user.provider === 'local') {
+      if (!user || user.provider !== provider) {
         console.log('no user in db. register new user');
         const newUser = await User.create({
           username,
