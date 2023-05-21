@@ -1,52 +1,50 @@
 'use client';
-import styles from '@/styles/contact.module.css';
+import React, { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useState } from 'react';
 import axios from 'axios';
 import { useAlertStore } from '@/store/alertStore';
+import styles from '@/styles/contact.module.css';
 
-const LoginForm = ({ providers }) => {
+const SignUpForm = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   // alerts
   const showAlert = useAlertStore((state) => state.showAlert);
   //
-
-  // chack if user exist
-  const checkUser = async () => {
+  //   sing up
+  const signup = async () => {
     try {
       await axios
-        .get(`/api/user/credentials?email=${email}&password=${password}`)
+        .post(`/api/user/credentials`, { username, email, password })
         .then((res) => {
           console.log(res);
-          loginUser();
         });
     } catch (error) {
       showAlert(error.response.data.error, 'danger');
       console.log(error.response);
     }
   };
-  // Login
-  const loginUser = async () => {
-    try {
-      let options = { email: email, password: password, redirect: '/' };
-      await signIn('credentials', options).then((res) => {
-        console.log(res);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    checkUser();
+    signup();
   };
+  //   handle sign up
 
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+      <div className={styles.form_input}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="username"
+          name="username"
+          id="username"
+          placeholder="Your name"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+      </div>
       <div className={styles.form_input}>
         <label htmlFor="email">Email</label>
         <input
@@ -64,14 +62,14 @@ const LoginForm = ({ providers }) => {
           type="password"
           name="password"
           id="password"
-          placeholder="Your@password.com"
+          placeholder="*******"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-      <button className="btn block-btn dark"> Log in </button>
+      <button className="btn block-btn dark"> Sign up </button>
     </form>
   );
 };
 
-export default LoginForm;
+export default SignUpForm;

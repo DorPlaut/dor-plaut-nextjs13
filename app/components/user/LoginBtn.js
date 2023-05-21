@@ -21,12 +21,14 @@ export default function Login() {
   // get the current user after a login/loguot
   const getUser = useUserStore((state) => state.getUser);
   const user = useUserStore((state) => state.user);
-  const getCurrentUser = async (email) => {
+  const getCurrentUser = async (email, provider) => {
     const url = process.env.NEXT_PUBLIC_URL;
     try {
-      await axios.get(`/api/user?email=${email}`).then((res) => {
-        getUser(res.data.user);
-      });
+      await axios
+        .get(`/api/user?email=${email}&provider=${provider}`)
+        .then((res) => {
+          getUser(res.data.user);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +38,7 @@ export default function Login() {
   // use effect
   useEffect(() => {
     if (session && user.email != session.user.email) {
-      getCurrentUser(session.user.email);
+      getCurrentUser(session.user.email, session.user.provider);
     }
   }, [session]);
   return (

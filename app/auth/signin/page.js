@@ -3,7 +3,7 @@ import TitlesSection from '@/app/components/TitlesSection';
 import React from 'react';
 import styles from '@/styles/contact.module.css';
 import SiteInfo from '@/app/components/SiteInfo';
-import LoginForm from '@/app/components/user/LoginForm';
+import Login from '@/app/components/user/Login';
 import axios from 'axios';
 
 async function getData() {
@@ -12,13 +12,18 @@ async function getData() {
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
-
   return res.json();
 }
 
 // component
-const Login = async () => {
-  const providers = await getData();
+const LoginPage = async () => {
+  const allProviders = await getData();
+  // rephrase providers
+  const providersArray = Object.values(allProviders);
+  const providers = providersArray.filter(
+    (provider) => provider.id !== 'credentials'
+  );
+
   return (
     <>
       <TitlesSection>
@@ -26,7 +31,7 @@ const Login = async () => {
       </TitlesSection>
       <MainSection>
         <div className={`${styles.contact} container`}>
-          <LoginForm providers={providers} />
+          <Login providers={providers} />
           <SiteInfo />
         </div>
       </MainSection>
@@ -34,4 +39,4 @@ const Login = async () => {
   );
 };
 
-export default Login;
+export default LoginPage;

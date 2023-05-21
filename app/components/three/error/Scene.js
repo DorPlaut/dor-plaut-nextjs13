@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useFrame, Canvas } from '@react-three/fiber';
 import {
   PerspectiveCamera,
@@ -27,6 +27,7 @@ import { Gears } from '../Models/Gears';
 
 const Scene = () => {
   const isMobile = useMobileStore((state) => state.isMobile);
+  console.log(isMobile);
   const [boxPosition, setBoxPosition] = useState([0, 3, 0]);
   const [isZoomd, setIsZoomd] = useState(false);
   const [rotationSpeed, setRotationSpeed] = useState(0.1);
@@ -73,7 +74,7 @@ const Scene = () => {
           >
             <PerspectiveCamera
               makeDefault
-              position={[0, 0, isMobile ? 40 : 20]}
+              position={[0, 0, isMobile ? 50 : 20]}
             />
           </mesh>
           {/* LIGHT */}

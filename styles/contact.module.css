@@ -26,14 +26,14 @@
   padding: 1rem;
   width: 100%;
 }
-.contact_form {
+.form {
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.contact_form button {
+.form button {
   border-radius: var(--borderRadius);
   width: 80%;
   margin: 0.5rem;
@@ -51,8 +51,8 @@
   right: 35%;
   color: var(--primaryColorLight);
 }
-.contact_form input,
-.contact_form textarea {
+.form input,
+.form textarea {
   resize: none;
   font-size: 1.2rem;
   width: 80%;

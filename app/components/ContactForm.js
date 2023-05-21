@@ -46,7 +46,7 @@ const ContactForm = () => {
   return (
     <div className={styles.form_container}>
       <h3>Send me a message</h3>
-      <form onSubmit={handleSubmit} className={styles.contact_form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         {/* name */}
         <div className={styles.form_input}>
           <label>Name: </label>
