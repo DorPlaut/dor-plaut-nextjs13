@@ -24,8 +24,11 @@ const LoginForm = ({ providers }) => {
           loginUser();
         });
     } catch (error) {
-      showAlert(error.response.data.error, 'danger');
       console.log(error.response);
+      if (error.response.data.error)
+        showAlert(error.response.data.error, 'danger');
+      else showAlert('Something went wrong', 'danger');
+      console.log(error);
     }
   };
   // Login
