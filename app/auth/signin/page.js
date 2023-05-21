@@ -27,7 +27,7 @@ const LoginPage = async () => {
   return (
     <>
       <TitlesSection>
-        <p className={styles.titles}>lets log in or register</p>
+        <p className={styles.titles}>lets log in or registere</p>
       </TitlesSection>
       <MainSection>
         <div className={`${styles.contact} container`}>
