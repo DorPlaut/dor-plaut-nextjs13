@@ -13,7 +13,7 @@ import { redirect } from 'next/navigation';
 
 const Login = ({ providers }) => {
   console.log(providers);
-  // set page
+  // set pagee
   const [page, SetPage] = useState('Login');
   // handle providers icons
   const icon = (provider) => {
