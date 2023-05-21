@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react';
 import axios from 'axios';
 import { useAlertStore } from '@/store/alertStore';
 import styles from '@/styles/contact.module.css';
+import { redirect } from 'next/dist/server/api-utils';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState('');
@@ -12,17 +13,21 @@ const SignUpForm = () => {
   // alerts
   const showAlert = useAlertStore((state) => state.showAlert);
   //
-  //   sing up
+  //  handle sign up
   const signup = async () => {
     try {
       await axios
         .post(`/api/user/credentials`, { username, email, password })
         .then((res) => {
-          console.log(res);
+          loginUser();
         });
     } catch (error) {
-      showAlert(error.response.data.error, 'danger');
-      console.log(error.response);
+      if (error.response.data.error) {
+        showAlert(error.response.data.error, 'danger');
+      } else {
+        showAlert('Error, try diffrent email', 'danger');
+      }
+      console.log(error);
     }
   };
   // handle submit
@@ -30,7 +35,18 @@ const SignUpForm = () => {
     e.preventDefault();
     signup();
   };
-  //   handle sign up
+  // handle sign in
+  // Login
+  const loginUser = async () => {
+    try {
+      let options = { email: email, password: password, redirect: '/' };
+      await signIn('credentials', options).then((res) => {
+        redirect('/');
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
@@ -41,6 +57,7 @@ const SignUpForm = () => {
           name="username"
           id="username"
           placeholder="Your name"
+          required
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
@@ -52,6 +69,7 @@ const SignUpForm = () => {
           name="email"
           id="email"
           placeholder="Your@Email.com"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -63,6 +81,7 @@ const SignUpForm = () => {
           name="password"
           id="password"
           placeholder="*******"
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

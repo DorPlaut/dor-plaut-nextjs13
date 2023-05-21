@@ -4,6 +4,7 @@ import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import axios from 'axios';
 import { useAlertStore } from '@/store/alertStore';
+import { redirect } from 'next/navigation';
 
 const LoginForm = ({ providers }) => {
   const [email, setEmail] = useState('');
@@ -32,7 +33,7 @@ const LoginForm = ({ providers }) => {
     try {
       let options = { email: email, password: password, redirect: '/' };
       await signIn('credentials', options).then((res) => {
-        console.log(res);
+        redirect('/');
       });
     } catch (error) {
       console.log(error);
@@ -54,6 +55,7 @@ const LoginForm = ({ providers }) => {
           name="email"
           id="email"
           placeholder="Your@Email.com"
+          required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -65,6 +67,7 @@ const LoginForm = ({ providers }) => {
           name="password"
           id="password"
           placeholder="*********"
+          required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

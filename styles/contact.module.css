@@ -36,7 +36,7 @@
 .form button {
   border-radius: var(--borderRadius);
   width: 80%;
-  margin: 0.5rem;
+  margin-top: 0.5rem;
 }
 .form_input {
   display: flex;
@@ -47,19 +47,21 @@
   width: 100%;
 }
 .form_input label {
-  position: relative;
+  text-align: left;
+  width: 80%;
+  /* position: relative;
   right: 35%;
-  color: var(--primaryColorLight);
+  color: var(--primaryColorLight); */
 }
 .form input,
 .form textarea {
   resize: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   width: 80%;
   padding: 0.5rem 1rem;
   border-radius: var(--borderRadius);
   border: none;
-  margin: 0.2rem;
+  margin: 0.15rem;
   background: var(--primaryColorLight);
   color: var(--primaryColorDark);
 }
