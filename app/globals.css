@@ -216,6 +216,10 @@ footer {
   background: #4267b2;
   color: white;
 }
+.github {
+  background: #6e5494;
+  color: white;
+}
 
 /* flex */
 .flex-row {
