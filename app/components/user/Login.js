@@ -12,6 +12,7 @@ import SignUpForm from './SignUpForm';
 import { redirect } from 'next/navigation';
 
 const Login = ({ providers }) => {
+  console.log(providers);
   // set page
   const [page, SetPage] = useState('Login');
   // handle providers icons

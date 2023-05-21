@@ -125,7 +125,6 @@ export const authOptions = {
 
     // sign in
     async signIn(user) {
-      console.log('CALBACK!');
       const provider = user.account.provider;
       if (provider !== 'credentials') {
         const { name, email, image, id } = user.user;
