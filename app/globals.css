@@ -207,6 +207,15 @@ footer {
   width: 100%;
   background: var(--primaryColorDark);
 }
+/* login buttons */
+.google {
+  background: #ca2e29;
+  color: white;
+}
+.facebook {
+  background: #4267b2;
+  color: white;
+}
 
 /* flex */
 .flex-row {

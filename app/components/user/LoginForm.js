@@ -64,7 +64,7 @@ const LoginForm = ({ providers }) => {
           type="password"
           name="password"
           id="password"
-          placeholder="Your@password.com"
+          placeholder="*********"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
