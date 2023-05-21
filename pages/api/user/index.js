@@ -6,9 +6,9 @@ export default async function handler(req, res) {
   try {
     if (req.method === 'POST') {
       const { username, email, image, provider, provider_id } = req.body;
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email: email, provider: provider });
       // if there is no user from this provider
-      if (!user || user.provider !== provider) {
+      if (!user) {
         console.log('no user in db. register new user');
         const newUser = await User.create({
           username,

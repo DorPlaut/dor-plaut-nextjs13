@@ -122,7 +122,7 @@ const Form = () => {
   }, [cart, country]);
   return (
     <>
-      {cart.products.length() > 0 && (
+      {cart.products.length > 0 && (
         <div className={styles.checkout_form_container}>
           <form onSubmit={handleSubmit} action="" method="post">
             <div className={styles.checkout_form}>
