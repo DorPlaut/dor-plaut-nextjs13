@@ -8,6 +8,7 @@ import axios from 'axios';
 
 async function getData() {
   const url = process.env.NEXT_PUBLIC_URL + '/api/auth/providers';
+  console.log(url);
   const res = await fetch(url);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
