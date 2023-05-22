@@ -4,6 +4,7 @@ import FacebookProvider from 'next-auth/providers/facebook';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GitHubProvider from 'next-auth/providers/github';
 import Auth0Provider from 'next-auth/providers/auth0';
+import LinkedInProvider from 'next-auth/providers/linkedin';
 
 import axios from 'axios';
 
@@ -103,6 +104,10 @@ export const authOptions = {
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       issuer: process.env.AUTH0_ISSUER,
+    }),
+    LinkedInProvider({
+      clientId: process.env.LINKEDIN_CLIENT_ID,
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
