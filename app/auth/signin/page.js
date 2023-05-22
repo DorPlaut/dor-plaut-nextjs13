@@ -6,6 +6,7 @@ import SiteInfo from '@/app/components/SiteInfo';
 import Login from '@/app/components/user/Login';
 import axios from 'axios';
 
+// i had problem with fetching the providers on deployment so i moved the fetch to the login client component for now. dot use this function
 async function getData() {
   const url = process.env.NEXT_PUBLIC_URL + '/api/auth/providers';
   console.log(url);
@@ -18,12 +19,12 @@ async function getData() {
 
 // component
 const LoginPage = async () => {
-  const allProviders = await getData();
-  // rephrase providers
-  const providersArray = Object.values(allProviders);
-  const providers = providersArray.filter(
-    (provider) => provider.id !== 'credentials'
-  );
+  // const allProviders = await getData();
+  // // rephrase providers
+  // const providersArray = Object.values(allProviders);
+  // const providers = providersArray.filter(
+  //   (provider) => provider.id !== 'credentials'
+  // );
 
   return (
     <>
@@ -32,7 +33,7 @@ const LoginPage = async () => {
       </TitlesSection>
       <MainSection>
         <div className={`${styles.contact} container`}>
-          <Login providers={providers} />
+          <Login />
           <SiteInfo />
         </div>
       </MainSection>
